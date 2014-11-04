@@ -22,18 +22,20 @@ public class GenerationRN {
         FileOutputStream outputStreamX = new FileOutputStream(fileX);
 
 
-        ArrayList<Integer> y = new ArrayList<Integer>(tao);
-        y.add(y0);
+
+        ArrayList<Integer> y1 = new ArrayList<Integer>(tao);
+        y1.add(y0);
         int rightPart;
-        for (int i = 0; i < y.size(); i++) {
-            rightPart = (a * inverse(y.get(i), mod) + b) % mod;
-            y.add(i + 1, rightPart);
-            outputStreamY.write(y.get(i));
-        }
+//        for (int i = 0; i < y1.size(); i++) {
+//            rightPart = (a * inverse(y1.get(i), mod) + b) % mod;
+//            y1.add(i + 1, rightPart);
+//            outputStreamY.write(y1.get(i));
+//        }
 
         ArrayList<Double> x = new ArrayList<Double>(tao);
         for (int i = 0; i < x.size(); i++) {
-            x.add((double) y.get(i) / p);
+            rightPart = (a * Double.valueOf(inverse(x.get(i), mod)) + b) % mod;
+            x.add(i + 1, Double.valueOf(rightPart / p));
             //outputStreamX.;
         }
 
@@ -41,12 +43,12 @@ public class GenerationRN {
         outputStreamX.close();
         }
 
-    private static int inverse(int k, int p) {
-        int x = 0;
+    private static Double inverse(int k, int p) {
+        Double x = 0.0;
         return x = extndedEuclid(k, p);
     }
 
-    private static int extndedEuclid(int a, int b) {
+    private static Double extndedEuclid(int a, int b) {
         int q, r, x1, x2, y1, y2;
         int d, x, y;
         x2 = 1;
@@ -70,8 +72,8 @@ public class GenerationRN {
         x = x2;
         y = y2;
         if (d == 1)
-            return x;
-        else return 0;
+            return Double.valueOf(x);
+        else return 0.0;
     }
 }
 
