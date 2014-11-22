@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +16,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
 //        System.out.println(12/10); = 1
 //        System.out.println(12%10); = 2
-          //ArrayList<Integer> y = GenerationRN.generate(p, a, y0, m, b);
-        //System.out.println(GenerationRN.generate(p, a, y0, m, b).toString());
-        GenerationRN.generate(P, A, Y0, M, B);
+        int tao = 2 * (int) Math.pow(P, M - 1);
+        GenerationRN generationRN = new GenerationRN(P, A, Y0, M, B);
+        File fileX = new File("x_sequence.txt");
+        fileX.createNewFile();
+        FileWriter fileWriter = new FileWriter(fileX);
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < 100; i++) {
+            s.append(generationRN.generate()).append(" ");
+            fileWriter.write(s.toString());
+        }
     }
 }
