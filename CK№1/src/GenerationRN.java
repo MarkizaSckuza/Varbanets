@@ -14,11 +14,11 @@ public class GenerationRN {
         this.b = b;
     }
 
-    public Double generate() {
+    public int generate() {
 
         int mod = (int) Math.pow(p, m);
         this.y0 = nextY(mod);
-        return ((double)y0 / p);
+        return (y0);
     }
 
 

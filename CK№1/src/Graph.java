@@ -9,18 +9,17 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
-public class J extends Application {
+public class Graph extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("JavaFX Chart (Series)");
+
 
         NumberAxis x = new NumberAxis();
         NumberAxis y = new NumberAxis();
 
         LineChart<Number, Number> numberLineChart = new LineChart<Number, Number>(x,y);
-        numberLineChart.setTitle("Series");
+        numberLineChart.setTitle("Random");
         XYChart.Series series1 = new XYChart.Series();
         XYChart.Series series2 = new XYChart.Series();
         series2.setName("cos(x)");
